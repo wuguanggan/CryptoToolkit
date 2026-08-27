@@ -1,3 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=JetBrains+Mono:wght@400;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --paper: #F7F5F0;
+  --ink: #17181C;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--paper);
+  background-image: radial-gradient(rgba(23, 24, 28, 0.055) 1px, transparent 1px);
+  background-size: 22px 22px;
+  color: var(--ink);
+  font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #17181C;
+  color: #F7F5F0;
+}
+
+.font-display {
+  font-family: 'Bricolage Grotesque', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+.font-mono-x {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* 纸张卡片 */
+.card {
+  @apply bg-white border border-[#E7E3D8] rounded-2xl transition-all duration-300;
+}
+.card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 34px -18px rgba(23, 24, 28, 0.28);
+  border-color: #d6d1c2;
+}
+
+/* 输入区统一风格 */
+.field {
+  @apply w-full bg-[#FBFAF7] border border-[#E7E3D8] rounded-xl px-4 py-3 outline-none transition-all duration-200 font-mono-x text-sm text-gray-800 placeholder:text-gray-400;
+}
+.field:focus {
+  border-color: var(--ink);
+  box-shadow: 0 0 0 3px rgba(23, 24, 28, 0.08);
+  background: #fff;
+}
+
+.btn-ink {
+  @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#17181C] text-[#F7F5F0] text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 active:scale-[0.98];
+}
+.btn-ghost {
+  @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white border border-[#D8D3C6] text-sm font-semibold text-gray-700 transition-all duration-200 hover:border-[#17181C] hover:text-[#17181C] active:scale-[0.98];
+}
+
+/* 页面进入动画 */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.rise {
+  animation: rise 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Markdown 预览排版（Tailwind preflight 会重置原生样式，需手动恢复） */
+.md-body { @apply text-[15px] leading-[1.85] text-gray-800 break-words; }
+.md-body > *:first-child { margin-top: 0; }
+.md-body h1 { @apply text-2xl font-bold mt-8 mb-4 pb-2 border-b border-hairline; }
+.md-body h2 { @apply text-xl font-bold mt-7 mb-3 pb-1.5 border-b border-hairline; }
+.md-body h3 { @apply text-lg font-bold mt-6 mb-2.5; }
+.md-body p { @apply my-3.5; }
+.md-body a { @apply text-teal-700 underline decoration-2 underline-offset-2 hover:text-ink; }
+.md-body ul { @apply list-disc pl-6 my-3.5 space-y-1; }
+.md-body ol { @apply list-decimal pl-6 my-3.5 space-y-1; }
+.md-body li > ul, .md-body li > ol { @apply my-1; }
+.md-body blockquote { @apply border-l-4 border-gray-300 pl-4 my-4 text-gray-500 italic; }
+.md-body code { @apply bg-paper border border-hairline rounded px-1.5 py-0.5 text-[13px] font-mono-x; }
+.md-body pre { @apply bg-[#FBFAF7] border border-hairline rounded-xl p-4 overflow-auto my-4; }
+.md-body pre code { @apply bg-transparent border-0 p-0 text-xs leading-relaxed; }
+.md-body table { @apply w-full border-collapse my-4 text-sm; }
+.md-body th, .md-body td { @apply border border-hairline px-3 py-2 text-left; }
+.md-body th { @apply bg-paper font-bold; }
+.md-body img { @apply max-w-full rounded-xl my-4; }
+.md-body hr { @apply border-hairline my-6; }
+
+/* 细滚动条 */
+*::-webkit-scrollbar { width: 8px; height: 8px; }
+*::-webkit-scrollbar-thumb { background: #D8D3C6; border-radius: 8px; }
+*::-webkit-scrollbar-thumb:hover { background: #b9b2a0; }

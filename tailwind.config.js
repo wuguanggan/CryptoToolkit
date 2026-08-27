@@ -7,7 +7,12 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Noto Sans SC"', 'sans-serif'],
+        sans: ['"PingFang SC"', '"Hiragino Sans GB"', '"Microsoft YaHei"', 'system-ui', 'sans-serif'],
+      },
+      colors: {
+        paper: '#F7F5F0',
+        ink: '#17181C',
+        hairline: '#E7E3D8',
       },
     },
   },
