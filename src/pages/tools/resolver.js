@@ -9,6 +9,7 @@ import ImageConvertPage from './ImageConvertPage';
 import ImageCropPage from './ImageCropPage';
 import ColorConverterPage from './ColorConverterPage';
 import MarkdownPage from './MarkdownPage';
+import MindMapPage from './MindMapPage';
 
 /** toolId → 页面组件 的路由解析表 */
 export const TOOL_PAGES = {
@@ -31,4 +32,5 @@ export const TOOL_PAGES = {
   'image-crop': ImageCropPage,
   color: ColorConverterPage,
   markdown: MarkdownPage,
+  mindmap: MindMapPage,
 };

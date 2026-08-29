@@ -8,6 +8,7 @@ import {
   KeySquare, Archive,
   Braces, Ticket, History, Pipette, FileText,
   QrCode, Minimize2, RefreshCw, Crop,
+  Network, Briefcase,
 } from 'lucide-react';
 
 export const SITE = {
@@ -48,6 +49,14 @@ export const CATS = [
     icon: Palette,
     color: '#1D4ED8',
     tint: '#E8EEFB',
+  },
+  {
+    id: 'office',
+    name: '办公效率',
+    desc: '思维导图、笔记等效率办公工具，本地保存随时续写',
+    icon: Briefcase,
+    color: '#6D28D9',
+    tint: '#F0EBFA',
   },
 ];
 
@@ -97,6 +106,10 @@ export const TOOL_LIST = [
     desc: 'PNG / JPG / WebP 互转，输出格式自由指定，本地处理即刻下载。' },
   { id: 'image-crop', cat: 'media', icon: Crop, name: '图片裁剪', en: 'Image Cropper',
     desc: '拖动与缩放画面框选区域，按 1:1、16:9 等常用比例裁剪导出。' },
+
+  // ── 办公效率 ──
+  { id: 'mindmap', cat: 'office', icon: Network, name: '思维导图', en: 'Mind Map', popular: true,
+    desc: '纯前端可视化思维导图，拖拽编辑、本地自动保存，可导出 PNG / SVG / JSON / Markdown。' },
 ];
 
 export const getCat = (catId) => CATS.find((c) => c.id === catId);
